@@ -6,15 +6,13 @@ import java.util.Random;
 
 public class WeatherProvider {
     private static String weather[] = {"RAIN", "FOG", "SUN", "SNOW"};
-    private static WeatherProvider weatherProvider;
+    private static WeatherProvider weatherProvider = new WeatherProvider();
     private static int i = 0;
 
-    public WeatherProvider (){
-        this.weatherProvider = new WeatherProvider();
-    }
+    private WeatherProvider (){ }
 
-    public static WeatherProvider getWeatherProvider(){
-        return weatherProvider = new WeatherProvider();
+    public static WeatherProvider getProvider(){
+        return WeatherProvider.weatherProvider;
     }
 
     public String getCurrentWeather(Coordinates coordinates){

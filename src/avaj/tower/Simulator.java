@@ -13,7 +13,6 @@ public class Simulator {
         String fileName = args[0];
         String text = "";
         ArrayList<String> airCraft = new ArrayList<>();
-
         File file = new File(fileName);
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -38,7 +37,8 @@ public class Simulator {
                         craftInfo = airCraft.get(i).split(" ");
                         if (craftInfo.length != 5 || Integer.parseInt(craftInfo[2]) < 0 || Integer.parseInt(craftInfo[3]) < 0)
                             throw new AirCraftInfoException();
-                        aircraftFactory.newAircraft(craftInfo[0], craftInfo[1], Integer.parseInt(craftInfo[2]), Integer.parseInt(craftInfo[3]), Integer.parseInt(craftInfo[4])).registerTower(weatherTower);
+                        Flyable flyable = aircraftFactory.newAircraft(craftInfo[0], craftInfo[1], Integer.parseInt(craftInfo[2]), Integer.parseInt(craftInfo[3]), Integer.parseInt(craftInfo[4]));
+                        flyable.registerTower(weatherTower);
                     } catch (AirCraftInfoException e) {
                         System.out.println("Not enough information, please check type, name, coordinates and height...");
                     } catch (NullPointerException e){
