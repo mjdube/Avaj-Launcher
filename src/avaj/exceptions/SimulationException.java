@@ -1,4 +1,4 @@
-package Exceptions;
+package avaj.exceptions;
 
 public class SimulationException extends Exception {
     private final int simulation;
@@ -7,7 +7,7 @@ public class SimulationException extends Exception {
     }
 
     public String outOfRange(){
-        return "Out of Range" + simulation;
+        return "Out of Range " + simulation;
     }
 
 }

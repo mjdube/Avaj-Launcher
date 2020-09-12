@@ -1,4 +1,4 @@
-package Transportation;
+package avaj.transportation;
 
 public abstract class Aircraft {
     protected long id;

@@ -1,6 +1,6 @@
-package Transportation;
+package avaj.transportation;
 
-import The_Tower.Flyable;
+import avaj.tower.Flyable;
 
 public class AircraftFactory {
 

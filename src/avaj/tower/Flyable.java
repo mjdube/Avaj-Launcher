@@ -1,4 +1,4 @@
-package The_Tower;
+package avaj.tower;
 
 public interface Flyable {
     public void updateCondition();

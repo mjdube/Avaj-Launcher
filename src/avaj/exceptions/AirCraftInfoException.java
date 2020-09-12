@@ -1,4 +1,4 @@
-package Exceptions;
+package avaj.exceptions;
 
 public class AirCraftInfoException extends Exception{
     public AirCraftInfoException(){}

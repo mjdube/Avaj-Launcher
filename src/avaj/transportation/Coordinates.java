@@ -1,4 +1,4 @@
-package Transportation;
+package avaj.transportation;
 
 public class Coordinates {
     private int longitude;

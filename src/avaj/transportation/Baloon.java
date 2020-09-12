@@ -1,7 +1,7 @@
-package Transportation;
+package avaj.transportation;
 
-import The_Tower.Flyable;
-import The_Tower.WeatherTower;
+import avaj.tower.Flyable;
+import avaj.tower.WeatherTower;
 
 public class Baloon extends Aircraft  implements Flyable {
     private WeatherTower weatherTower;

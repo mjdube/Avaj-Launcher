@@ -1,6 +1,6 @@
-package The_Tower;
+package avaj.tower;
 
-import Transportation.Coordinates;
+import avaj.transportation.Coordinates;
 
 public class WeatherTower extends Tower {
     WeatherProvider weatherProvider;
