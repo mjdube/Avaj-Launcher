@@ -4,11 +4,13 @@ import avaj.transportation.Coordinates;
 
 public class WeatherTower extends Tower {
 
-    public String getWeather(Coordinates coordinates){
+    public String getWeather(Coordinates coordinates)
+    {
         return WeatherProvider.getProvider().getCurrentWeather(coordinates);
     }
 
-    void changeWeather() {
+    void changeWeather()
+    {
         this.conditionChanged();
     }
 }

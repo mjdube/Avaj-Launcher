@@ -1,9 +1,10 @@
 package avaj.tower;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tower {
-    private ArrayList <Flyable> observers;
+    private List <Flyable> observers = new ArrayList<Flyable>();
 
     public void register(Flyable flyable){
         if (observers.contains(flyable))
