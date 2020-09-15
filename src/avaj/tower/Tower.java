@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Tower {
     private List <Flyable> observers = new ArrayList<Flyable>();
+    private List<Flyable> unobserved = new ArrayList<Flyable>();
 
     public void register(Flyable flyable){
         if (observers.contains(flyable))
@@ -17,12 +18,16 @@ public class Tower {
     }
 
     protected void conditionChanged(){
-        int i = 0;
-
-        while (i < observers.size())
-        {
+        /*
+        for (Flyable flyable: observers){
+            flyable.updateCondition();
+            if (flyable.getCoordinates().getHeight() <= 0){
+                unobserved.add(flyable);
+            }
+        }
+        observers.removeAll(unobserved);*/
+        for (int i = 0; i < observers.size(); i++) {
             observers.get(i).updateCondition();
-            i++;
         }
     }
 }

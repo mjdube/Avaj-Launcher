@@ -8,16 +8,16 @@ public abstract class Aircraft {
 
     protected Aircraft(String name, Coordinates coordinates){
         this.name = name;
+        this.idCounter = nextId();
+        this.id = this.idCounter;
         this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight());
     }
 
-    public long getId(){
-        return nextId();
-    }
-
     private long nextId(){
-        id = idCounter++;
-        return (id);
+        return (++idCounter);
     }
 
+    public	Coordinates getCoordinates() {
+        return this.coordinates;
+    }
 }

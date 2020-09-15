@@ -33,9 +33,8 @@ public class Simulator {
                     throw new AirCraftInfoException();
                 aircraftFactory.newAircraft(craftInfo[0], craftInfo[1], Integer.parseInt(craftInfo[2]), Integer.parseInt(craftInfo[3]), Integer.parseInt(craftInfo[4])).registerTower(weatherTower);
             }
-            while (number > 0) {
+            while (number-- > 0) {
                 weatherTower.changeWeather();
-                number--;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
