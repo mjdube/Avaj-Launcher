@@ -10,14 +10,14 @@ import java.util.InputMismatchException;
 
 public class Simulator {
     public static void main(String args[]) {
-        String fileName = args[0];
         String text = "";
         int number;
         ArrayList<String> airCraft = new ArrayList<>();
         WeatherTower weatherTower = new WeatherTower();
-        File file = new File(fileName);
 
         try {
+            String fileName = args[0];
+            File file = new File(fileName);
             BufferedReader br = new BufferedReader(new FileReader(file));
             text = br.readLine();
             number = Integer.parseInt(text);
@@ -33,21 +33,25 @@ public class Simulator {
                     throw new AirCraftInfoException();
                 aircraftFactory.newAircraft(craftInfo[0], craftInfo[1], Integer.parseInt(craftInfo[2]), Integer.parseInt(craftInfo[3]), Integer.parseInt(craftInfo[4])).registerTower(weatherTower);
             }
-            while (number-- > 0) {
-                weatherTower.changeWeather();
-            }
+            for (int i = 0; i < number; i++)
+                    weatherTower.changeWeather();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("No file found... ");
         } catch (AirCraftInfoException e) {
-            System.out.println("Not enough information, please check type, name, coordinates and height...");
+            System.out.println("Not enough information, please check type, name, coordinates and height... ");
         } catch (NullPointerException e) {
-            System.out.println("unable to register an unknown transportation");
+            System.out.println("Unable to register an unknown transportation and continue with Avaj... ");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SimulationException e) {
             System.out.println(e.outOfRange());
         } catch (InputMismatchException e) {
-            System.out.println("Unknown aircraft");
+            System.out.println("Unknown aircraft inserted... ");
+        } catch (NumberFormatException e){
+            System.out.println("Please enter a number...");
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Please check/insert your file... ");
         } finally {
             SimulationFile.getSimulationFile().closeFile();
         }

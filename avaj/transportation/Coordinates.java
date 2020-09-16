@@ -6,6 +6,14 @@ public class Coordinates {
     private int height;
 
     public Coordinates(int longitude, int latitude, int height){
+        if (longitude < 0)
+            longitude = 0;
+        else if (latitude < 0)
+            latitude = 0;
+        else if (height < 0)
+            height = 0;
+        else if (height > 100)
+            height = 100;
         this.longitude = longitude;
         this.latitude = latitude;
         this.height = height;
@@ -13,27 +21,20 @@ public class Coordinates {
 
     public int getLongitude()
     {
-        if (this.longitude < 0)
-            return (-1);
-        else
+
             return (this.longitude);
     }
 
     public int getLatitude()
     {
-        if (this.latitude < 0)
-            return (-1);
-        else
+
             return (this.latitude);
     }
 
     public int getHeight() {
-        if ((1 <= this.height) && (this.height <= 100))
+
             return (this.height);
-        else if (this.height > 100)
-            return (100);
-        else
-            return (0);
+
     }
 
     public void setHeight(int height) {

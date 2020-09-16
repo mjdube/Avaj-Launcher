@@ -1,3 +1,3 @@
 #!/bin/sh 
-javac src/avaj/tower/Simulator.java 
-java src.avaj.tower.Simulator scenario.txt
+javac avaj/tower/Simulator.java 
+java avaj.tower.Simulator ../scenario.txt

@@ -18,14 +18,6 @@ public class Tower {
     }
 
     protected void conditionChanged(){
-        /*
-        for (Flyable flyable: observers){
-            flyable.updateCondition();
-            if (flyable.getCoordinates().getHeight() <= 0){
-                unobserved.add(flyable);
-            }
-        }
-        observers.removeAll(unobserved);*/
         for (int i = 0; i < observers.size(); i++) {
             observers.get(i).updateCondition();
         }

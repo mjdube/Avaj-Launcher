@@ -8,8 +8,7 @@ public abstract class Aircraft {
 
     protected Aircraft(String name, Coordinates coordinates){
         this.name = name;
-        this.idCounter = nextId();
-        this.id = this.idCounter;
+        this.id = nextId();
         this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight());
     }
 
@@ -17,7 +16,4 @@ public abstract class Aircraft {
         return (++idCounter);
     }
 
-    public	Coordinates getCoordinates() {
-        return this.coordinates;
-    }
 }

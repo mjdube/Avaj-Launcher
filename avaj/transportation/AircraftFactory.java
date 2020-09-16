@@ -5,18 +5,15 @@ import avaj.tower.Flyable;
 public class AircraftFactory {
 
     public static Flyable newAircraft (String type, String name, int longitude, int latitude, int height){
-
+        Coordinates coordinates = new Coordinates(longitude, latitude,height);
         if (type.equalsIgnoreCase("Baloon")){
-            Baloon baloon = new Baloon(name, new Coordinates(longitude,latitude, height));
-            return baloon;
+            return new Baloon(name, coordinates);
         }
         else if (type.equalsIgnoreCase("Jetplane")){
-            Jetplane jetplane = new Jetplane(name, new Coordinates(longitude, latitude, height));
-            return jetplane;
+            return new Jetplane(name, coordinates);
         }
         else if (type.equalsIgnoreCase("Helicopter")){
-            Helicopter helicopter = new Helicopter(name, new Coordinates(longitude, latitude, height));
-            return helicopter;
+            return new Helicopter(name, coordinates);
         }
         else
             return null;
