@@ -3,6 +3,7 @@ package avaj.tower;
 import avaj.exceptions.AirCraftInfoException;
 import avaj.exceptions.SimulationException;
 import avaj.transportation.AircraftFactory;
+import avaj.exceptions.ScenarioException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Simulator {
         WeatherTower weatherTower = new WeatherTower();
 
         try {
+            if (args.length > 1) throw new ScenarioException();
             String fileName = args[0];
             File file = new File(fileName);
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -36,7 +38,6 @@ public class Simulator {
             for (int i = 0; i < number; i++)
                     weatherTower.changeWeather();
         } catch (FileNotFoundException e) {
-//            e.printStackTrace();
             System.out.println("No file found... ");
         } catch (AirCraftInfoException e) {
             System.out.println("Not enough information, please check type, name, coordinates and height... ");
@@ -52,6 +53,8 @@ public class Simulator {
             System.out.println("Please enter a number...");
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("Please check/insert your file... ");
+        } catch (ScenarioException e){
+            System.out.println(e.tooManyFiles());
         } finally {
             SimulationFile.getSimulationFile().closeFile();
         }
