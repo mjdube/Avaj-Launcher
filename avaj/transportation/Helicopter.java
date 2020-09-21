@@ -7,6 +7,7 @@ import avaj.tower.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
+    private boolean registered = true;
 
     Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
@@ -42,13 +43,14 @@ public class Helicopter extends Aircraft implements Flyable {
                 SimulationFile.getSimulationFile().writeToFile(msg);
                 System.out.println(msg);
             }
-        } else if (this.coordinates.getHeight() <= 0){
+        } else if (this.coordinates.getHeight() <= 0 && registered == true){
             String msg1 = "Helicopter #" + this.name + " (" + this.id + ") " + ": We are landing ladies and gentlemen, hope you enjoyed the ride.";
             String msg2 = "Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.";
 
             SimulationFile.getSimulationFile().writeToFile(msg1);
-            weatherTower.unregister(this);
+//            weatherTower.unregister(this);
             SimulationFile.getSimulationFile().writeToFile(msg2);
+            registered = false;
             System.out.println(msg1);
             System.out.println(msg2);
         }

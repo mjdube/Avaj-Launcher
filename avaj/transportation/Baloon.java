@@ -6,6 +6,7 @@ import avaj.tower.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
+    private boolean registered = true;
 
     Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
@@ -40,12 +41,13 @@ public class Baloon extends Aircraft implements Flyable {
                 SimulationFile.getSimulationFile().writeToFile(msg);
                 System.out.println(msg);
             }
-        } else if (this.coordinates.getHeight() <= 0) {
+        } else if (this.coordinates.getHeight() <= 0 && registered == true) {
             String msg1 = "Baloon #" + this.name + " (" + this.id + ") " + ": We are landing, going to the ground";
             String msg2 = "Tower says: Baloon#" + this.name + "(" + this.id + ")" + " unregistered from weather tower.";
 
             SimulationFile.getSimulationFile().writeToFile(msg1);
-            weatherTower.unregister(this);
+//            weatherTower.unregister(this);
+            registered = false;
             SimulationFile.getSimulationFile().writeToFile(msg2);
             System.out.println(msg1);
             System.out.println(msg2);
